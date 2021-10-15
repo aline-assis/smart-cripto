@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "873239709838",
+    "firebase_url": "https://smart-finance-e129a-default-rtdb.firebaseio.com",
+    "project_id": "smart-finance-e129a",
+    "storage_bucket": "smart-finance-e129a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873239709838:android:b445b5e9900d9d939a61df",
+        "android_client_info": {
+          "package_name": "com.example.smart_finance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873239709838-6so2qn0e4qc8lgjhh24kdsmcgv8pgoua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqMVj6JBxbtNJQ5hc4YQ0OB4BvXWP78dk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873239709838-6so2qn0e4qc8lgjhh24kdsmcgv8pgoua.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
