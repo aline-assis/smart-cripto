@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smart_finance/screens/banco_screen.dart';
-import 'package:smart_finance/screens/perfil_screen.dart';
-import '/screens/home_screen.dart';
 
 class AppBottomNavigation extends StatefulWidget {
   final int selectedIndex;
@@ -29,16 +26,16 @@ class _AppBottomNavigationState extends State<AppBottomNavigation> {
       _selectedIndex = index;
       currentNavigation = index;
     });
-    if (_selectedIndex == 0) {
-      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-    }
-    if (_selectedIndex == 1) {
-      Navigator.of(context).pushReplacementNamed(BancoScreen.routeName);
-    }
-    if (_selectedIndex == 2) {
-      Navigator.of(context).pushReplacementNamed(PerfilFormScreen.routeName);
-      //Navigator.of(context).pushReplacementNamed(UserHome.routeName);
-    }
+    // if (_selectedIndex == 0) { CRIAR DPS AS ROTAS
+    //   Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+    // }
+    // if (_selectedIndex == 1) {
+    //   Navigator.of(context).pushReplacementNamed(BancoScreen.routeName);
+    // }
+    // if (_selectedIndex == 2) {
+    //   Navigator.of(context).pushReplacementNamed(PerfilFormScreen.routeName);
+    //   //Navigator.of(context).pushReplacementNamed(UserHome.routeName);
+    // }
     // if (_selectedIndex == 3) {
     //   //Navigator.of(context).pushReplacementNamed(UserHome.routeName);
 
