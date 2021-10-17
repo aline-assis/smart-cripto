@@ -33,7 +33,7 @@ class SmartFinanceApp extends StatelessWidget {
             fontFamily: 'Roboto',
           ),
           //home: authData.isAuth! ? HomeScreen() : AuthScreen(),
-          home: authData.isAuth! ? AuthScreen() : WelcomeScreen(),
+          home: authData.isAuth! ? AuthScreen(isLogin: true) : WelcomeScreen(),
           routes: {
             WelcomeScreen.routeName: (ctx) => WelcomeScreen(),
             AuthScreen.routeName: (ctx) => AuthScreen(),

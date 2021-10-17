@@ -10,9 +10,13 @@ enum AuthMode { Signup, Login }
 
 class AuthScreen extends StatelessWidget {
   static const routeName = '/auth';
+  bool isLogin;
+
+  AuthScreen({Key? key, this.isLogin = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    isLogin = (ModalRoute.of(context)!.settings.arguments as bool);
     final deviceSize = MediaQuery.of(context).size;
     // final transformConfig = Matrix4.rotationZ(-8 * pi / 180);
     // transformConfig.translate(-10.0);
@@ -34,7 +38,7 @@ class AuthScreen extends StatelessWidget {
                 children: <Widget>[
                   Flexible(
                     flex: deviceSize.width > 600 ? 2 : 1,
-                    child: AuthCard(),
+                    child: AuthCard(isLogin: isLogin),
                   ),
                 ],
               ),
@@ -47,9 +51,8 @@ class AuthScreen extends StatelessWidget {
 }
 
 class AuthCard extends StatefulWidget {
-  const AuthCard({
-    Key? key,
-  }) : super(key: key);
+  final bool isLogin;
+  const AuthCard({Key? key, required this.isLogin}) : super(key: key);
 
   @override
   _AuthCardState createState() => _AuthCardState();
@@ -127,6 +130,16 @@ class _AuthCardState extends State<AuthCard> {
         _authMode = AuthMode.Login;
       });
     }
+  }
+
+  @override
+  void initState() {
+    if (!widget.isLogin) {
+      setState(() {
+        _authMode = AuthMode.Signup;
+      });
+    }
+    super.initState();
   }
 
   @override

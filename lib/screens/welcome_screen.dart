@@ -67,8 +67,8 @@ class WelcomeScreen extends StatelessWidget {
                         child: GestureDetector(
                           onTap: () {
                             Navigator.of(context).pushNamed(
-                              AuthScreen.routeName,
-                            );
+                                AuthScreen.routeName,
+                                arguments: false);
                           },
                           child: Stack(
                             children: [
@@ -104,12 +104,14 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       ),
                       Container(
+                        //color: Colors.red,
                         margin: new EdgeInsets.symmetric(
                             horizontal: 0.0, vertical: 15),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.of(context)
-                                .pushNamed(AuthScreen.routeName);
+                            Navigator.of(context).pushNamed(
+                                AuthScreen.routeName,
+                                arguments: true);
                           },
                           child: Stack(children: [
                             ClipRRect(
