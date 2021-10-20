@@ -23,29 +23,33 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<void> signup(String email, String password) async {
-    final url = Uri.parse(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCckCtgd8d0Tba-8XyCQcCKLSRaBNThRPY");
+    final url = Uri.parse("http://147.182.215.248:8000/api/profile/");
     var response = await http.post(
       url,
+      headers: {"Content-Type": "application/json"},
       body: json.encode({
+        // "id": 26,
+        // "last_login": "2021-10-13T01:10:37.101690Z",
         'email': email,
         'password': password,
-        'returnSecureToken': true,
+        "is_active": true,
+        "staff": false,
+        "admin": false
       }),
     );
     final responseData = json.decode(response.body);
     if (responseData['error'] != null) {
       throw HttpException(responseData['error']['message']);
     }
-    _token = responseData['idToken'];
-    _userId = responseData['localId'];
-    _expiration = DateTime.now().add(
-      Duration(
-        seconds: int.parse(
-          responseData['expiresIn'],
-        ),
-      ),
-    );
+    // _token = responseData['idToken'];
+    // _userId = responseData['localId'];
+    // _expiration = DateTime.now().add(
+    //   Duration(
+    //     seconds: int.parse(
+    //       responseData['expiresIn'],
+    //     ),
+    //   ),
+    //);
     notifyListeners();
   }
 
