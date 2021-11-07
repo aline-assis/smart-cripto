@@ -1,6 +1,7 @@
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_finance/screens/home_screen.dart';
 import 'package:smart_finance/screens/welcome_screen.dart';
 import 'package:smart_finance/screens/auth_screen.dart';
 import 'providers/auth_provider.dart';
@@ -26,17 +27,18 @@ class SmartFinanceApp extends StatelessWidget {
       child: Consumer<AuthProvider>(
         builder: (ctx, authData, child) => MaterialApp(
           title: 'SmartFinance',
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: Colors.purple,
             // ignore: deprecated_member_use
             accentColor: Colors.deepPurpleAccent[50],
             fontFamily: 'Roboto',
           ),
-          //home: authData.isAuth! ? HomeScreen() : AuthScreen(),
-          home: authData.isAuth! ? AuthScreen(isLogin: true) : WelcomeScreen(),
+          home: authData.isAuth! ? HomeScreen() : WelcomeScreen(),
           routes: {
             WelcomeScreen.routeName: (ctx) => WelcomeScreen(),
             AuthScreen.routeName: (ctx) => AuthScreen(),
+            HomeScreen.routeName: (ctx) => HomeScreen(),
           },
         ),
       ),

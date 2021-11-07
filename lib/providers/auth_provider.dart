@@ -23,7 +23,7 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<void> signup(String email, String password) async {
-    final url = Uri.parse("http://147.182.215.248:8000/api/profile/");
+    final url = Uri.parse("http://147.182.215.248:8002/api/profile/");
     var response = await http.post(
       url,
       headers: {"Content-Type": "application/json"},
@@ -54,29 +54,33 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<void> login(String email, String password) async {
-    final url = Uri.parse(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCckCtgd8d0Tba-8XyCQcCKLSRaBNThRPY");
+    final url = Uri.parse("http://147.182.215.248:8001/api-auth/login/");
     var response = await http.post(
       url,
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': 'Token 6b929e47f278068fe6ac8235cda09707a3aa7ba1'
+      },
       body: json.encode({
         'email': email,
         'password': password,
-        'returnSecureToken': true,
       }),
     );
     final responseData = json.decode(response.body);
     if (responseData['error'] != null) {
       throw HttpException(responseData['error']['message']);
     }
-    _token = responseData['idToken'];
-    _userId = responseData['localId'];
-    _expiration = DateTime.now().add(
-      Duration(
-        seconds: int.parse(
-          responseData['expiresIn'],
-        ),
-      ),
-    );
+
+    _token = responseData['X-CSRFToken'];
+    print(_token);
+    // _userId = responseData['localId'];
+    // _expiration = DateTime.now().add(
+    //   Duration(
+    //     seconds: int.parse(
+    //       responseData['expiresIn'],
+    //     ),
+    //   ),
+    // );
     notifyListeners();
   }
 }

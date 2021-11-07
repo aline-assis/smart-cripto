@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/screens/home_screen.dart';
 
 class AppBottomNavigation extends StatefulWidget {
   final int selectedIndex;
@@ -26,9 +27,9 @@ class _AppBottomNavigationState extends State<AppBottomNavigation> {
       _selectedIndex = index;
       currentNavigation = index;
     });
-    // if (_selectedIndex == 0) { CRIAR DPS AS ROTAS
-    //   Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-    // }
+    if (_selectedIndex == 0) {
+      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+    }
     // if (_selectedIndex == 1) {
     //   Navigator.of(context).pushReplacementNamed(BancoScreen.routeName);
     // }
@@ -45,13 +46,13 @@ class _AppBottomNavigationState extends State<AppBottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: Color(0xff8257e5),
+      backgroundColor: Color(0xff1a2027),
       //backgroundColor: Color(0xff9871f5),
       type: BottomNavigationBarType.fixed,
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Início'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.monetization_on), label: 'Bancos'),
+        // BottomNavigationBarItem(
+        //     icon: Icon(Icons.monetization_on), label: 'Bancos'),
         //BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favoritos'),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
