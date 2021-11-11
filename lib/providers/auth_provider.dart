@@ -22,6 +22,8 @@ class AuthProvider with ChangeNotifier {
     return null;
   }
 
+  // Store.saveMap('userId', {'token' : _token, ''});
+
   Future<void> signup(String email, String password) async {
     final url = Uri.parse("http://147.182.215.248:8002/api/profile/");
     var response = await http.post(
