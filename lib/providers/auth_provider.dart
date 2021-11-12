@@ -55,8 +55,8 @@ class AuthProvider with ChangeNotifier {
     _body['csrfmiddlewaretoken'] =
         'L91GyqdJ5lP4EPk98kXw4FgVGTNkHwDSJjankHciKycLm75Kb0cH30GgpMenNv7f';
     _body['next'] = '/api/profile';
-    _body['username'] = 'tesste97@gmail.com';
-    _body['password'] = '2131231';
+    _body['username'] = email;
+    _body['password'] = password;
     _body['submit'] = 'Log+in';
 
     var response = await http.post(url, headers: _header, body: _body);
