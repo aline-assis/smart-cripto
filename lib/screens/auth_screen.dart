@@ -1,6 +1,7 @@
 // import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:smart_finance/screens/home_screen.dart';
 // import 'package:smart_finance/componets/app_drawer.dart';
 import '../providers/auth_provider.dart';
 import 'package:provider/provider.dart';
@@ -117,6 +118,7 @@ class _AuthCardState extends State<AuthCard> {
     }
     setState(() {
       _isLoading = false;
+      Navigator.of(context).pushNamed(HomeScreen.routeName);
     });
   }
 

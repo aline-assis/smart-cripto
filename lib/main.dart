@@ -7,6 +7,7 @@ import 'package:smart_finance/screens/perfil_screen.dart';
 import 'package:smart_finance/screens/welcome_screen.dart';
 import 'package:smart_finance/screens/auth_screen.dart';
 import 'providers/auth_provider.dart';
+import 'screens/splash_screen.dart';
 
 Future<void> main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +37,19 @@ class SmartFinanceApp extends StatelessWidget {
             accentColor: Colors.deepPurpleAccent[50],
             fontFamily: 'Roboto',
           ),
-          home: authData.isAuth! ? HomeScreen() : WelcomeScreen(),
+          //home: authData.isAuth! ? HomeScreen() : WelcomeScreen(),
+          home: Consumer<AuthProvider>(
+            builder: (ctx, authData, child) => authData.isAuth!
+                ? HomeScreen()
+                : FutureBuilder(
+                    future: authData.tryAutoLogin(),
+                    builder: (ctx, authResultSnapshot) =>
+                        authResultSnapshot.connectionState ==
+                                ConnectionState.waiting
+                            ? SplashScreen()
+                            : WelcomeScreen(),
+                  ),
+          ),
           routes: {
             WelcomeScreen.routeName: (ctx) => WelcomeScreen(),
             AuthScreen.routeName: (ctx) => AuthScreen(),
