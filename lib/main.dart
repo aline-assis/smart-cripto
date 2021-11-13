@@ -1,11 +1,13 @@
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_finance/providers/currency_provider.dart';
 import 'package:smart_finance/screens/geral_screen.dart';
 import 'package:smart_finance/screens/home_screen.dart';
 import 'package:smart_finance/screens/perfil_screen.dart';
 import 'package:smart_finance/screens/welcome_screen.dart';
 import 'package:smart_finance/screens/auth_screen.dart';
+import 'package:smart_finance/widgets/currencies_widget.dart';
 import 'providers/auth_provider.dart';
 import 'screens/splash_screen.dart';
 
@@ -23,6 +25,9 @@ class SmartFinanceApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (ctx) => AuthProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (ctx) => CurrencyProvider(),
+        )
         // ChangeNotifierProvider( ADICIONAR OS NOVOS PROVIDER
         //   create: (ctx) => PerfilProvider(),
         // )
@@ -47,7 +52,7 @@ class SmartFinanceApp extends StatelessWidget {
                         authResultSnapshot.connectionState ==
                                 ConnectionState.waiting
                             ? SplashScreen()
-                            : WelcomeScreen(),
+                            : HomeScreen(),
                   ),
           ),
           routes: {
@@ -56,6 +61,7 @@ class SmartFinanceApp extends StatelessWidget {
             HomeScreen.routeName: (ctx) => HomeScreen(),
             PerfilScreen.routeName: (ctx) => PerfilScreen(),
             GeralScreen.routeName: (ctx) => GeralScreen(),
+            CurrenciesWidget.routeName: (ctx) => CurrenciesWidget(),
           },
         ),
       ),

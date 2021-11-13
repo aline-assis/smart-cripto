@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_finance/screens/perfil_screen.dart';
+import 'package:smart_finance/widgets/currencies_widget.dart';
 import '/screens/home_screen.dart';
 
 class AppBottomNavigation extends StatefulWidget {
@@ -34,10 +35,10 @@ class _AppBottomNavigationState extends State<AppBottomNavigation> {
     if (_selectedIndex == 1) {
       Navigator.of(context).pushReplacementNamed(PerfilScreen.routeName);
     }
-    // if (_selectedIndex == 2) {
-    //   Navigator.of(context).pushReplacementNamed(PerfilFormScreen.routeName);
-    //   //Navigator.of(context).pushReplacementNamed(UserHome.routeName);
-    // }
+    if (_selectedIndex == 2) {
+      Navigator.of(context).pushReplacementNamed(CurrenciesWidget.routeName);
+      //Navigator.of(context).pushReplacementNamed(UserHome.routeName);
+    }
     // if (_selectedIndex == 3) {
     //   //Navigator.of(context).pushReplacementNamed(UserHome.routeName);
 
@@ -52,8 +53,8 @@ class _AppBottomNavigationState extends State<AppBottomNavigation> {
       type: BottomNavigationBarType.fixed,
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Início'),
-        // BottomNavigationBarItem(
-        //     icon: Icon(Icons.monetization_on), label: 'Bancos'),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.monetization_on), label: 'Bancos'),
         //BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favoritos'),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),

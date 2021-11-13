@@ -4,6 +4,7 @@ import 'package:smart_finance/widgets/app_bottom_nav.dart';
 class HomeScreen extends StatelessWidget {
   static const routeName = "/home";
   const HomeScreen({Key? key}) : super(key: key);
+  //initialKey?
 
   @override
   Widget build(BuildContext context) {

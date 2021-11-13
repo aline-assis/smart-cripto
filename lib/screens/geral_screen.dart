@@ -6,6 +6,7 @@ class GeralScreen extends StatelessWidget {
   static const routeName = "/geral";
   const GeralScreen({Key? key}) : super(key: key);
 
+//onWillPop https://youtu.be/eGwq3_0K_Sg
   @override
   Widget build(BuildContext context) {
     return Scaffold(
