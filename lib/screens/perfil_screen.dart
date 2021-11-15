@@ -275,7 +275,7 @@ class PerfilScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: AppBottomNavigation(
-        selectedIndex: 1,
+        selectedIndex: 2,
       ),
     );
   }

@@ -15,7 +15,7 @@ class CurrencyProvider extends ChangeNotifier {
     final currencies = await CryptoApi.getCurrencies();
 
     this.currencies = currencies;
-    currencyDataSource = CurrencyDataSource(currencies: currencies);
+    currencyDataSource = CurrencyDataSource(currencies: this.currencies);
     notifyListeners();
   }
 }

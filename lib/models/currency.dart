@@ -24,7 +24,7 @@ class Currency {
   Currency.fromJson(Map<String, dynamic> json)
       : this.id = json['id'],
         this.name = json['name'],
-        this.price = json['price'],
+        this.price = double.parse(json['price']),
         this.logoUrl = json['logo_url'],
         this.marketCap = double.parse(json['market_cap']),
         this.rank = int.parse(json['rank']),

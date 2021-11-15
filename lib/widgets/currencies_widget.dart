@@ -5,7 +5,6 @@ import 'package:smart_finance/utils/currency_data_source.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
 class CurrenciesWidget extends StatelessWidget {
-  static const routeName = "/currenciesWidget";
   const CurrenciesWidget({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -16,6 +15,8 @@ class CurrenciesWidget extends StatelessWidget {
       return Center(child: CircularProgressIndicator());
     } else
       return SfDataGrid(
+        allowSorting: true,
+        defaultColumnWidth: 110,
         columns: buildGridCollumns(),
         source: currencyDataSource,
       );
@@ -24,32 +25,53 @@ class CurrenciesWidget extends StatelessWidget {
   List<GridColumn> buildGridCollumns() => <GridColumn>[
         GridColumn(
           columnName: CurrencyColumn.id.toString(),
-          label: buildLabel('ID'),
+          label: Container(
+              color: Color(0xff1a2027),
+              alignment: Alignment.center,
+              child: Text('Token', style: TextStyle(color: Colors.white24))),
         ),
         GridColumn(
           columnName: CurrencyColumn.rank.toString(),
           maximumWidth: 80,
-          label: buildLabel('Rank'),
+          label: Container(
+              color: Color(0xff1a2027),
+              alignment: Alignment.center,
+              child: Text('Rank', style: TextStyle(color: Colors.white24))),
         ),
         GridColumn(
           columnName: CurrencyColumn.name.toString(),
-          label: buildLabel('Name'),
+          label: Container(
+              color: Color(0xff1a2027),
+              alignment: Alignment.center,
+              child: Text('Nome', style: TextStyle(color: Colors.white24))),
         ),
         GridColumn(
           columnName: CurrencyColumn.price.toString(),
-          label: buildLabel('Price'),
+          label: Container(
+              color: Color(0xff1a2027),
+              alignment: Alignment.center,
+              child: Text('Preço', style: TextStyle(color: Colors.white24))),
         ),
         GridColumn(
           columnName: CurrencyColumn.oneHChange.toString(),
-          label: buildLabel('Last 1H'),
+          label: Container(
+              color: Color(0xff1a2027),
+              alignment: Alignment.center,
+              child: Text('1h atras', style: TextStyle(color: Colors.white24))),
         ),
         GridColumn(
           columnName: CurrencyColumn.oneDChange.toString(),
-          label: buildLabel('Last day'),
+          label: Container(
+              color: Color(0xff1a2027),
+              alignment: Alignment.center,
+              child: Text('Ontem', style: TextStyle(color: Colors.white24))),
         ),
         GridColumn(
           columnName: CurrencyColumn.marketCap.toString(),
-          label: buildLabel('Market Cap'),
+          label: Container(
+              color: Color(0xff1a2027),
+              alignment: Alignment.center,
+              child: Text('Mercado', style: TextStyle(color: Colors.white24))),
         ),
       ];
 
