@@ -1,6 +1,9 @@
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_finance/grafico/grafico_screen.dart';
+import 'package:smart_finance/grafico/menu_controller.dart';
+import 'package:smart_finance/grafico/provider/crypto_provider_grafico.dart';
 import 'package:smart_finance/providers/currency_provider.dart';
 import 'package:smart_finance/screens/currency_screen.dart';
 import 'package:smart_finance/screens/geral_screen.dart';
@@ -28,10 +31,16 @@ class SmartFinanceApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (ctx) => CurrencyProvider(),
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => MenuController(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => CryptoProviderGrafico(),
+        ),
         // ChangeNotifierProvider( ADICIONAR OS NOVOS PROVIDER
         //   create: (ctx) => PerfilProvider(),
-        // )
+        // ),
       ],
       child: MaterialApp(
         title: 'SmartFinance',
@@ -45,14 +54,14 @@ class SmartFinanceApp extends StatelessWidget {
         //home: authData.isAuth! ? HomeScreen() : WelcomeScreen(),
         home: Consumer<AuthProvider>(
           builder: (ctx, authData, child) => authData.isAuth!
-              ? HomeScreen()
+              ? Grafico()
               : FutureBuilder(
                   future: authData.tryAutoLogin(),
                   builder: (ctx, authResultSnapshot) =>
                       authResultSnapshot.connectionState ==
                               ConnectionState.waiting
                           ? SplashScreen()
-                          : HomeScreen(),
+                          : Grafico(),
                 ),
         ),
         routes: {
@@ -62,6 +71,7 @@ class SmartFinanceApp extends StatelessWidget {
           PerfilScreen.routeName: (ctx) => PerfilScreen(),
           GeralScreen.routeName: (ctx) => GeralScreen(),
           CurrencyScreen.routeName: (ctx) => CurrencyScreen(),
+          Grafico.routeName: (ctx) => Grafico(),
         },
       ),
     );

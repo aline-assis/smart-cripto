@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smart_finance/grafico/grafico_screen.dart';
 import 'package:smart_finance/screens/currency_screen.dart';
 import 'package:smart_finance/screens/perfil_screen.dart';
 import 'package:smart_finance/widgets/currencies_widget.dart';
-import '/screens/home_screen.dart';
+//import '/screens/home_screen.dart';
 
 class AppBottomNavigation extends StatefulWidget {
   final int selectedIndex;
@@ -31,7 +32,7 @@ class _AppBottomNavigationState extends State<AppBottomNavigation> {
       currentNavigation = index;
     });
     if (_selectedIndex == 0) {
-      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+      Navigator.of(context).pushReplacementNamed(Grafico.routeName);
     }
     if (_selectedIndex == 2) {
       Navigator.of(context).pushReplacementNamed(PerfilScreen.routeName);
