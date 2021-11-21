@@ -103,20 +103,26 @@ class _QuoteListWidgetState extends State<QuoteListWidget> {
   Widget pieChartCard() {
     return Container(
       child: Card(
+        color: Color(0xff1a2027),
         elevation: 5,
         child: Container(
           padding: EdgeInsets.all(15),
           child: Center(
             child: Container(
               child: SfCircularChart(
-                title: ChartTitle(text: 'Value each currency in USD'),
+                title: ChartTitle(
+                    text: 'Valor de cada moeda em USD',
+                    textStyle: TextStyle(color: Colors.white70)),
                 legend: Legend(isVisible: true),
                 series: <CircularSeries>[
                   DoughnutSeries<VolumeAllCurrencyData, String>(
                     dataSource: _volumeAllCurrencies,
                     xValueMapper: (VolumeAllCurrencyData v, _) => v.name,
                     yValueMapper: (VolumeAllCurrencyData v, _) => v.value,
-                    dataLabelSettings: DataLabelSettings(isVisible: true),
+                    dataLabelSettings: DataLabelSettings(
+                        isVisible: true,
+                        textStyle:
+                            TextStyle(color: Colors.white70, fontSize: 12.5)),
                   ),
                 ],
               ),
@@ -130,6 +136,7 @@ class _QuoteListWidgetState extends State<QuoteListWidget> {
   Widget quoteTableCard() {
     return Container(
       child: Card(
+        color: Color(0xff1a2027),
         elevation: 5,
         child: Container(
           padding: EdgeInsets.all(15),
@@ -139,19 +146,22 @@ class _QuoteListWidgetState extends State<QuoteListWidget> {
             columns: [
               if (!Response.isSmallScreen(context))
                 DataColumn(
-                  label: Text('Symbol'),
+                  label:
+                      Text('Symbol', style: TextStyle(color: Colors.white70)),
                 ),
               DataColumn(
-                label: Text('Name'),
+                label: Text('Nome', style: TextStyle(color: Colors.white70)),
               ),
               DataColumn(
-                label: Text('Price'),
+                label: Text('Preço', style: TextStyle(color: Colors.white70)),
               ),
               DataColumn(
-                label: Text('Change'),
+                label:
+                    Text('Alteração', style: TextStyle(color: Colors.white70)),
               ),
               DataColumn(
-                label: Text('% Change'),
+                label: Text('% Alteração',
+                    style: TextStyle(color: Colors.white70)),
               ),
             ],
             rows: _quoteList
@@ -190,7 +200,8 @@ class _QuoteListWidgetState extends State<QuoteListWidget> {
                                     ],
                                   ),
                                 )
-                              : Text('${quote.shortName}'),
+                              : Text('${quote.shortName}',
+                                  style: TextStyle(color: Colors.white24)),
                         ),
                         DataCell(
                           Text(

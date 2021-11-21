@@ -11,7 +11,6 @@ import 'package:smart_finance/screens/home_screen.dart';
 import 'package:smart_finance/screens/perfil_screen.dart';
 import 'package:smart_finance/screens/welcome_screen.dart';
 import 'package:smart_finance/screens/auth_screen.dart';
-import 'package:smart_finance/widgets/currencies_widget.dart';
 import 'providers/auth_provider.dart';
 import 'screens/splash_screen.dart';
 
@@ -46,9 +45,9 @@ class SmartFinanceApp extends StatelessWidget {
         title: 'SmartFinance',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.purple,
+          primarySwatch: Colors.blueGrey,
           // ignore: deprecated_member_use
-          accentColor: Colors.deepPurpleAccent[50],
+          accentColor: Color(0xff1a2027),
           fontFamily: 'Roboto',
         ),
         //home: authData.isAuth! ? HomeScreen() : WelcomeScreen(),

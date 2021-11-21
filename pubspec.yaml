@@ -31,7 +31,7 @@ dependencies:
   flutter_screenutil: ^5.0.0+2
   flutter_slidable: ^0.6.0
   google_fonts: ^2.1.0
-  flutter_svg: ^0.21.0+1
+  flutter_svg: ^0.22.0
   http: ^0.13.3
   provider: ^6.0.0
   mask_text_input_formatter: ^2.0.0
@@ -64,24 +64,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/vetor.jpg
-    - assets/images/saldo.png
-    - assets/images/nubank.png
-    - assets/images/bradesco3.png
-    - assets/images/inter.png
-    - assets/images/invoice.png
-    - assets/images/home.png
-    - assets/images/setting.png
-    - assets/images/bank.png
-    - assets/images/teste.png
-    - assets/images/login.png
-    - assets/images/login2.png
-    - assets/images/bitcoin.png
-    - assets/images/ethereum.png
-    - assets/images/litecoin.png
-    - assets/images/monero.png
-    - assets/images/tron.png
-
+    - assets/images/
+    - assets/icons/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

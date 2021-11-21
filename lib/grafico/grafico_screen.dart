@@ -25,8 +25,11 @@ class Grafico extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    'Crypto-Dashboard',
-                    style: TextStyle(color: Colors.white24),
+                    'Crypto-Informações',
+                    style: TextStyle(
+                        color: Colors.white24,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),
                   ),
                 ],
               ),

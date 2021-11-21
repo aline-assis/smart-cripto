@@ -65,6 +65,7 @@ class _TopQuoteWidgetState extends State<TopQuoteWidget> {
 
   Widget topQuoteCard(Quote quote) {
     return Card(
+      color: Color(0xff1a2027),
       elevation: 5,
       child: Column(
         children: [
